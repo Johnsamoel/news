@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 const Text = () => {
     return (
         <Typography
-        fontSize="2.5rem"
+        fontSize="3.5rem"
         fontWeight="400px"
         color="white"
         textAlign="center"
@@ -11,7 +11,7 @@ const Text = () => {
       >
         My Personal Journey With
         <Typography 
-         fontSize="2.5rem"
+         fontSize="3.2rem"
         fontWeight="400px"
         color="white"
         textAlign="center"

@@ -14,7 +14,8 @@ const Header = () => {
         backgroundSize: "cover",
         boxSizing:'border-box',
         backgroundAttachment:'fixed',
-        backgroundPosition:'center center'
+        backgroundPosition:'center center',
+        position:'relative',
       }}
     >
 
