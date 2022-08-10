@@ -1,9 +1,9 @@
-import { Typography } from '@mui/material';
-import React from 'react';
+//importing sections of the Home page
+import Header from '../Components/Header';
 
 const Home = () => {
     return (
-           <Typography>Home page</Typography> 
+           <Header  />
     );
 };
 
