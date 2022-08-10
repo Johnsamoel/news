@@ -15,7 +15,7 @@ const Navbar = () => {
                 {/* button section */}
                 <Box sx={{ width:{lg:'50%' , md:'50%' , sm:'50%' , xs:"100%"}}}>
                 <Stack sx={{ width:'100%' , height:'100%' , paddingRight:'50px' , paddingLeft:'50px'}} justifyContent='flex-end' flexDirection='row' alignItems='center'>
-                    <Button variant='contained' sx={{backgroundColor:'black' , color:'white'}}>Login</Button>
+                    <Button variant='contained' sx={{backgroundColor:'black' , color:'white'}}>Join Now</Button>
                 </Stack>
                 </Box>
             </Stack>
