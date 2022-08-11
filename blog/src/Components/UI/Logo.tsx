@@ -3,7 +3,7 @@ import React from 'react';
 
 const Logo = () => {
     return (
-         <Typography fontSize='2rem' fontWeight="500px" fontFamily='Montserrat'>JOURNEY.</Typography>
+         <Typography fontSize='2rem' fontWeight="500px" fontFamily='Montserrat' textAlign='start'>JOURNEY.</Typography>
     );
 };
 

@@ -15,7 +15,8 @@ const Header = () => {
         boxSizing:'border-box',
         backgroundAttachment:'fixed',
         backgroundPosition:'center center',
-        position:'relative',
+        position: 'relative',
+        zIndex:'-5'
       }}
     >
 
