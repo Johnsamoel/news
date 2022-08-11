@@ -4,6 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 // importing routing utilities from React. 
 import  {lazy , Suspense} from 'react';
 import { BrowserRouter , Routes , Route } from 'react-router-dom';
+import Footer from '../Components/UI/Footer';
 
 //importing some components
 import Loader from '../Components/UI/Loader';
@@ -29,6 +30,7 @@ function App() {
       <Route path='/register' element={<Register />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
+    <Footer />
     </Suspense>
     </BrowserRouter>
   );

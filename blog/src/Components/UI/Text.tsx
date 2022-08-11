@@ -3,15 +3,15 @@ import { Typography } from "@mui/material";
 const Text = () => {
     return (
         <Typography
-        fontSize="3.5rem"
+        sx={{ fontSize:{lg:'3.5rem' , md:'3.5rem' , sm:'2rem' , xs:'2rem' } }} 
         fontWeight="400px"
         color="white"
         textAlign="center"
-        fontFamily='Yeseva One'
+        fontFamily='Playfair Display'
       >
         My Personal Journey With
         <Typography 
-         fontSize="3.2rem"
+        sx={{ fontSize:{lg:'3.5rem' , md:'3.5rem' , sm:'2rem' , xs:'2rem'} }} 
         fontWeight="400px"
         color="white"
         textAlign="center"

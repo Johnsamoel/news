@@ -6,7 +6,7 @@ import Logo from "./Logo";
 
 const Navbar = () => {
     return (
-          <Box sx={{height:'3.5rem' , position:'fixed' , top:'0px' , width:'100%' , backgroundColor:'white' }}>
+          <Box sx={{height:'3.5rem' , position:'fixed' , top:'0px' , width:'100%' , backgroundColor:'white' , zIndex:'1000' }}>
             <Stack direction='row' justifyContent='space-between' alignItems='center' flexWrap='wrap' sx={{width:'100%' , height:'100%'}}>
                 {/* logo section */}
                 <Box sx={{ width:{lg:'50%' , md:'50%' , sm:'50%' , xs:"100%"}}}>
