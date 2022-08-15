@@ -1,12 +1,15 @@
 // importing some mui components
 import {
   Button,
+  CircularProgress,
   FormControl,
   FormHelperText,
   TextField,
   Typography,
 } from "@mui/material";
 import { Stack } from "@mui/system";
+
+import LoadingButton from '@mui/lab/LoadingButton';
 
 // importing some hooks from React.
 import { useEffect, useState, useContext } from "react";
@@ -35,7 +38,7 @@ interface errors {
 const RegisterForm = () => {
   const StoredEmail: string | null = localStorage.getItem("Email");
 
-  const { SetNewUser, RequestError, Isregistered } = useContext(AuthContext);
+  const { SetNewUser, RequestError, Isregistered , isloading } = useContext(AuthContext);
 
   const [values, setValues] = useState<ValueObj>({
     userName: "",
@@ -67,6 +70,12 @@ const RegisterForm = () => {
   const SubmitForm = (e: any): void => {
     e.preventDefault();
 
+    if(values.Email ==='' && values.userName === '' && values.password ==='') {
+      formik.setTouched({ username: true , Email: true  , password: true})
+      formik.setErrors({username:'Required' , Email:'Required' , password:'Required'})
+      return ;
+    }
+
     const errors = validate({
       username: values.userName,
       password: values.password,
@@ -84,7 +93,7 @@ const RegisterForm = () => {
     if (Isregistered && !RequestError) Navigate("/login");
   }, [Isregistered , Navigate , RequestError]);
 
-  const validate = (values: any, Field?: string) => {
+  const validate = (values: any) => {
     const errors = {
       userName: "",
       Email: "",
@@ -276,7 +285,7 @@ const RegisterForm = () => {
         <Button
           variant="contained"
           component="label"
-          sx={{ width: "100%", textAlign: "center" }}
+          sx={{ width: "100%", textAlign: "center" , fontFamily:'poppins' }}
         >
           {" "}
           Upload Profile photo{" "}
@@ -291,13 +300,9 @@ const RegisterForm = () => {
           />{" "}
         </Button>
 
-        <Button
-          variant="contained"
-          sx={{ backgroundColor: "black", color: "white" }}
-          onClick={SubmitForm}
-        >
-          Subscribe
-        </Button>
+        <LoadingButton variant="contained" size="large" sx={{width:'100%'}} color="success" type="submit" onClick={SubmitForm} disabled={isloading}  loading={isloading} loadingIndicator={ <CircularProgress color="inherit" />} >
+        Create Account
+        </LoadingButton>
       </Stack>
       {RequestError && (
         <Typography sx={{ color: "red", width: "100%", textAlign: "center" }}>
