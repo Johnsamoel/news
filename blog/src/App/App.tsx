@@ -4,11 +4,15 @@ import CssBaseline from '@mui/material/CssBaseline';
 // importing routing utilities from React. 
 import  {lazy , Suspense} from 'react';
 import { BrowserRouter , Routes , Route } from 'react-router-dom';
-import Footer from '../Components/UI/Footer';
 
 //importing some components
 import Loader from '../Components/UI/Loader';
 import Navbar from '../Components/UI/Navbar';
+import Footer from '../Components/UI/Footer';
+
+//consuming context in whole app.
+import { PostsContextProvider  } from '../Context/PostsContext';
+import { AuthContextProvider } from '../Context/AuthContext';
 
 // implementing lazy loading to optmize the performance of initial loading.
 const Home = lazy(() => import('../Pages/Home'));
@@ -19,6 +23,8 @@ const NotFound = lazy(() => import('../Pages/NotFound'));
 
 function App() {
   return (
+    <AuthContextProvider>
+    <PostsContextProvider>
     <BrowserRouter >
     <CssBaseline />
     <Suspense fallback={<Loader />}>
@@ -33,6 +39,8 @@ function App() {
     <Footer />
     </Suspense>
     </BrowserRouter>
+    </PostsContextProvider>
+    </AuthContextProvider>
   );
 }
 

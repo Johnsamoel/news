@@ -5,7 +5,7 @@ import SubscribtionForm from "./UI/SubscribtionForm";
 
 const Sucsription = () => {
   return (
-    <Box >
+    <Box  sx={{ height:'100%' , width:'100%'}}>
       <Stack
         sx={{ width: "100%", height: "100%" }}
         justifyContent="center"
@@ -27,7 +27,7 @@ const Sucsription = () => {
               color:'#3f3f3f',
               fontWeight:'bolder'
             }}
-          >  Subscribe <Typography sx={{ fontSize: { lg: "2rem", md: "2rem", sm: "1rem", xs: "1rem" },
+          >  Subscribe <Typography component='span' sx={{ display:'block' , fontSize: { lg: "2rem", md: "2rem", sm: "1rem", xs: "1rem" },
           fontFamily: "Playfair Display",
           textAlign: "center",
           width:{lg:'100%', md:'100%' , sm:'100%', xs:'100%'},
