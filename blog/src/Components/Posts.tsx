@@ -2,39 +2,35 @@ import { Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 
 //setting posts state 
-import { useState , useEffect} from 'react';
+import { useEffect , useContext} from 'react';
+
+//importing my context
+import { PostsContext } from '../Context/PostsContext';
 
 //importing my components
 import PostCard from './UI/PostCard';
 
-//importing axios for fetching posts
-import axios from 'axios';
+//import Post interface
+import { postObj } from '../Context/PostsContext';
 
-interface postObj  {
-    _id : string ;
-    title:string ;
-    description: string ;
-    postImage: string ;
-}
+
+
 
 
 
 const Posts = () => {
 
-    const [posts , setPosts] = useState<postObj[]>();
+const { posts , FetchAllPosts } = useContext(PostsContext);
 
-    const FetchAllPosts = () => { axios.get('http://localhost:3000/api/posts/')
-    .then((response) => setPosts(response.data))
-    .catch((error) => console.log(error.message)) }
 
-    useEffect(() => { FetchAllPosts() } , [])
+    useEffect( () => { FetchAllPosts()} , [])
 
     return (
     
-     <Box sx={{minHeight:'400px' , padding:'1rem'  ,  zIndex:{xl:'222' , lg:'222' , md:'222' , sm:'222'} ,
+     <Box sx={{ padding:'1rem'  ,  zIndex:{xl:'222' , lg:'222' , md:'222' , sm:'222'} ,
       position:{ xl: 'relative' , lg:'relative' , md:'relative' , sm:'relative'} ,
       top:{xl:'-15rem' , lg:'-15rem' , md:'-15rem' , sm:'-15rem'} ,
-      marginLeft:'auto' , marginRight:'auto'}}>
+      marginLeft:'auto' , marginRight:'auto' }}>
     <Grid container justifyContent='center' sx={{paddingTop:'5rem' , gap:{  lg:'5rem' , md:'5rem'  , sm:"1rem" , xs:"1rem"}}}>
 
     
@@ -54,4 +50,3 @@ const Posts = () => {
 
 export default Posts;
 
-//top:{xl:'65%' , lg:'65%' , md:'60%' , sm:'60%'} 

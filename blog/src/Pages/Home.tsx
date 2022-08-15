@@ -2,6 +2,7 @@
 import Header from '../Components/Header';
 import Posts from '../Components/Posts';
 import Sucsription from '../Components/Sucsription';
+import Slider from '../Components/UI/Slider';
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
            <Header  />
            <Posts   />
            <Sucsription />
+           <Slider />
            </>
     );
 };
