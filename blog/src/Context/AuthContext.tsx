@@ -11,6 +11,7 @@ import axios from 'axios';
 
 interface contextValueObj {
     SetNewUser : (userData: newUserParam ) => void ;
+    LogUserIn : (userData : {email: string , password: string}) => void ;
     isloading : boolean;
     Isregistered : boolean;
     loggedIn : boolean ;
@@ -19,6 +20,7 @@ interface contextValueObj {
 
 export const AuthContext = React.createContext<contextValueObj>({
 SetNewUser : () => {},
+LogUserIn: () => {},
 isloading: false ,
 RequestError: false,
 Isregistered: false,
@@ -50,10 +52,21 @@ export const AuthContextProvider: React.FC<{children: React.ReactNode }> = (prop
         })
     }
 
-
+   const LogUserIn = ( userData: { email: string , password: string }) => {
+     axios.post('http://localhost:3000/api/auth/login' , userData)
+    .then((res) => {
+       setIsloading(false);
+       setIsLoggedIn(true);
+   })
+   .catch((err) => {
+       setIsloading(false);
+       setRequestError(true)
+   })
+   }
     
     const  contextValue =  {
         SetNewUser,
+        LogUserIn,
         isloading,
         Isregistered,
         loggedIn,

@@ -1,6 +1,7 @@
 import { Box, Container, Stack, Typography } from '@mui/material';
 
 import { Link } from 'react-router-dom';
+import LoginForm from '../Components/UI/LoginForm';
 
 const Login = () => {
     return (
@@ -10,7 +11,7 @@ const Login = () => {
         <Container maxWidth='md' sx={{backgroundColor:'#ffffffd6' , height:{md:'600px'} , padding:'2rem' }}>
             <Stack justifyContent='center' alignItems='center' sx={{ width:'100%' , height:'100%'}} gap={5}>
             <Typography sx={{color:'black' , fontFamily:'Montserrat' , fontWeight:'bold' , fontSize:'2rem' }}>keep in Touch!</Typography>
-             
+             <LoginForm />
             
             <Typography sx={{fontFamily:'poppins' , fontWeight:'900px'}}>Don't Have an account?  <Link to='/register' style={{textDecoration : 'none'}}>Create one</Link></Typography>
             </Stack>
